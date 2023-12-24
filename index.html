@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Product Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #333;
+      padding: 15px;
+      text-align: center;
+      color: white;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .hero-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .scroll-buttons {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .scroll-btn {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      margin: 0 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero-section {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-images">
+     
+      <img src="https://source.unsplash.com/random/1920x1080" alt="Hero Image 1" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1081" alt="Hero Image 2" class="hero-image">
+    
+      <img src="https://source.unsplash.com/random/1920x1082" alt="Hero Image 3" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1083" alt="Hero Image 4" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1084" alt="Hero Image 5" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1085" alt="Hero Image 6" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1086" alt="Hero Image 7" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1087" alt="Hero Image 8" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1088" alt="Hero Image 9" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1089" alt="Hero Image 10" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1090" alt="Hero Image 11" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1091" alt="Hero Image 12" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1092" alt="Hero Image 13" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1093" alt="Hero Image 14" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1094" alt="Hero Image 15" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1095" alt="Hero Image 16" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1096" alt="Hero Image 17" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1097" alt="Hero Image 18" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1098" alt="Hero Image 19" class="hero-image">
+      <img src="https://source.unsplash.com/random/1920x1099" alt="Hero Image 20" class="hero-image">
+    </div>
+
+    <div class="scroll-buttons">
+      <button class="scroll-btn" onclick="prevImage()">&#8249;</button>
+      <button class="scroll-btn" onclick="nextImage()">&#8250;</button>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+  <script>
+    let currentIndex = 0;
+
+    $(document).ready(function () {
+      showImage();
+    });
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % 20;
+      showImage();
+      moveImages();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + 20) % 20;
+      showImage();
+      moveImages();
+    }
+
+    function showImage() {
+      $('.hero-images img').attr('src', `https://source.unsplash.com/random/1920x10${80 + currentIndex}`);
+    }
+
+    function moveImages() {
+      const leftPosition = currentIndex * -100 + '%';
+      $('.hero-images').css('transform', 'translateX(' + leftPosition + ')');
+    }
+  </script>
+</body>
+</html>
